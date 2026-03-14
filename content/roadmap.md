@@ -5,7 +5,7 @@ type: "page"
 showToc: true
 ---
 
-This document outlines my structured, phased approach to advancing in a high-demand cloud security career, focusing on skill development, certification milestones, and target roles.
+This document outlines my structured, phased approach to advancing in a high-demand cloud security career, focusing on skill development, certification milestones and target roles.
 
 ---
 
@@ -25,10 +25,10 @@ This foundational phase is centered on mastering endpoint security and introduci
 The high-leverage execution phase, transitioning from administrator duties to engineering secure deployment guardrails using security and DevOps concepts.
 
 * **Credentials:** AZ-500 -> SC-300 -> SC-200
-* **The Work:** Shifting from deploying infrastructure to actively defending it. Focus on Cloud Security Posture Management (CSPM), configuring SIEM/SOAR tools, managing Defender for Cloud, and responding to active threats across the Azure tenant.
+* **The Work:** Shifting from deploying infrastructure to actively defending it. Focus on Cloud Security Posture Management (CSPM), configuring SIEM/SOAR tools, managing Defender for Cloud and responding to active threats across the Azure tenant.
 
 ### Target Execution
-* **SIEM Deployment & Threat Automation:** Deploy Microsoft Sentinel, connect it to Entra ID logs, and create automated runbooks (Azure Logic Apps) to automatically isolate compromised identities.
+* **SIEM Deployment & Threat Automation:** Deploy Microsoft Sentinel, connect it to Entra ID logs and create automated runbooks (Azure Logic Apps) to automatically isolate compromised identities.
 * **Cloud Security Posture Management (CSPM):** Implement Microsoft Defender for Cloud across a multi-tier architecture, auditing against CIS benchmarks or SOC 2 frameworks.
 
 ---
@@ -46,10 +46,10 @@ Transitioning from technical execution to strategic design, focusing on translat
 ---
 
 ## Phase 4: The Executive Gateway
-The shift into strategic leadership, dictating corporate policy, and managing security budgets.
+The shift into strategic leadership, dictating corporate policy and managing security budgets.
 
 * **Credentials:** CISSP -> CISM
-* **The Work:** Managing the security budget, dictating corporate policy, and leading engineering teams. 
+* **The Work:** Managing the security budget, dictating corporate policy and leading engineering teams. 
 
 ### Target Execution
 * **Enterprise Incident Response Plan:** Develop a comprehensive Incident Response (IR) and Disaster Recovery (DR) playbook for a globally distributed enterprise.

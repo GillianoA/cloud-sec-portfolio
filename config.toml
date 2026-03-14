@@ -5,7 +5,7 @@ theme = 'PaperMod'
 
 [params]
   env = 'production'
-  description = 'Securing Azure environments through Zero Trust architecture, identity governance, and automated compliance.'
+  description = 'Securing Azure environments through Zero Trust architecture, identity governance and automated compliance.'
   author = 'Gilliano Agard'
   disableThemeToggle = false
 
@@ -13,11 +13,9 @@ theme = 'PaperMod'
   enabled = true
   title = "Gilliano Agard"
   subtitle = "Cloud Security Engineer \n\nBridging technical lifecycle management with enterprise-scale cloud security. Specializing in Azure Zero Trust architecture, identity governance, and automated SOC 2 compliance."
-  
-  # professional headshot later
-  # imageUrl = "link-to-your-image.jpg" 
-  # imageWidth = 150
-  # imageHeight = 150
+  imageUrl = "/headshot.jpg" 
+  imageWidth = 150
+  imageHeight = 150
 
   [[params.profileMode.buttons]]
     name = "Security Case Studies"
