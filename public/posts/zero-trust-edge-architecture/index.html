@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Case Study: Zero Trust Edge Architecture | Gilliano Agard | Cloud Security</title>
+<meta name="keywords" content="Azure, Cloudflare, WAF, CI/CD, Zero Trust">
+<meta name="description" content="Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.">
+<meta name="author" content="Gilliano Agard">
+<link rel="canonical" href="http://localhost:1313/posts/zero-trust-edge-architecture/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/zero-trust-edge-architecture/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/posts/zero-trust-edge-architecture/">
+  <meta property="og:site_name" content="Gilliano Agard | Cloud Security">
+  <meta property="og:title" content="Case Study: Zero Trust Edge Architecture">
+  <meta property="og:description" content="Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-14T00:00:00+00:00">
+    <meta property="article:tag" content="Azure">
+    <meta property="article:tag" content="Cloudflare">
+    <meta property="article:tag" content="WAF">
+    <meta property="article:tag" content="CI/CD">
+    <meta property="article:tag" content="Zero Trust">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Case Study: Zero Trust Edge Architecture">
+  <meta name="twitter:description" content="Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Case Study: Zero Trust Edge Architecture",
+      "item": "http://localhost:1313/posts/zero-trust-edge-architecture/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Case Study: Zero Trust Edge Architecture",
+  "name": "Case Study: Zero Trust Edge Architecture",
+  "description": "Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.",
+  "keywords": [
+    "Azure", "Cloudflare", "WAF", "CI/CD", "Zero Trust"
+  ],
+  "articleBody": "The Objective To design and deploy a highly resilient, automated web infrastructure that completely obscures the origin compute layer and mitigates automated reconnaissance at the edge.\nRather than relying on default vendor configurations, this deployment enforces a strict Zero Trust perimeter using a reverse proxy, strict SSL/TLS termination, and custom Web Application Firewall (WAF) rules.\nThe Architecture The infrastructure is decoupled into two distinct layers: Compute/Hosting and Perimeter Security.\nThe Origin (Azure Static Web Apps): The application is compiled statically via a native GitHub Actions CI/CD pipeline. The pipeline bypasses Azure’s default black-box builder (Oryx) in favor of a deterministic, runner-based execution. The Edge (Cloudflare): Azure’s origin IP and CNAME records are completely hidden behind Cloudflare’s global edge network. Direct traffic to the Azure tenant is impossible. Threat Mitigation \u0026 WAF Configuration A major vulnerability for any public-facing infrastructure is automated botnet reconnaissance. Attackers continuously scan domains for exposed .env files, .git repositories, or legacy login portals.\nInstead of relying solely on reactive threat scoring, I engineered a proactive WAF rule to immediately drop this traffic at the edge, preserving origin bandwidth and eliminating the attack vector.\nFigure 1: Custom Cloudflare WAF rule deployed to block automated URI probing.\nSecurity Controls Enforced: Strict SSL/TLS: Enforced at the edge, rejecting any HTTP downgrade attempts. Origin Obfuscation: The Azure tenant is shielded by Cloudflare’s reverse proxy, preventing direct DDoS attacks against the compute layer. Deterministic CI/CD: The deployment pipeline utilizes skip_app_build: true to prevent vendor auto-builders from introducing unauthorized configuration drift. The Business Impact This architecture demonstrates the ability to deploy enterprise-grade, highly secure infrastructure with near-zero overhead. By neutralizing threats at the DNS/Edge layer, the underlying Azure environment remains isolated, compliant and cost-efficient.\n",
+  "wordCount" : "282",
+  "inLanguage": "en",
+  "datePublished": "2026-03-14T00:00:00Z",
+  "dateModified": "2026-03-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Gilliano Agard"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/zero-trust-edge-architecture/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Gilliano Agard | Cloud Security",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Gilliano Agard | Cloud Security (Alt + H)">Gilliano Agard | Cloud Security</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Case Study: Zero Trust Edge Architecture
+    </h1>
+    <div class="post-description">
+      Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.
+    </div>
+    <div class="post-meta"><span title='2026-03-14 00:00:00 +0000 UTC'>March 14, 2026</span>&nbsp;·&nbsp;<span>Gilliano Agard</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-objective" aria-label="The Objective">The Objective</a></li>
+                <li>
+                    <a href="#the-architecture" aria-label="The Architecture">The Architecture</a></li>
+                <li>
+                    <a href="#threat-mitigation--waf-configuration" aria-label="Threat Mitigation &amp; WAF Configuration">Threat Mitigation &amp; WAF Configuration</a><ul>
+                        
+                <li>
+                    <a href="#security-controls-enforced" aria-label="Security Controls Enforced:">Security Controls Enforced:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-business-impact" aria-label="The Business Impact">The Business Impact</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-objective">The Objective<a hidden class="anchor" aria-hidden="true" href="#the-objective">#</a></h2>
+<p>To design and deploy a highly resilient, automated web infrastructure that completely obscures the origin compute layer and mitigates automated reconnaissance at the edge.</p>
+<p>Rather than relying on default vendor configurations, this deployment enforces a strict Zero Trust perimeter using a reverse proxy, strict SSL/TLS termination, and custom Web Application Firewall (WAF) rules.</p>
+<hr>
+<h2 id="the-architecture">The Architecture<a hidden class="anchor" aria-hidden="true" href="#the-architecture">#</a></h2>
+<p>The infrastructure is decoupled into two distinct layers: <strong>Compute/Hosting</strong> and <strong>Perimeter Security</strong>.</p>
+<ol>
+<li><strong>The Origin (Azure Static Web Apps):</strong> The application is compiled statically via a native GitHub Actions CI/CD pipeline. The pipeline bypasses Azure&rsquo;s default black-box builder (Oryx) in favor of a deterministic, runner-based execution.</li>
+<li><strong>The Edge (Cloudflare):</strong> Azure&rsquo;s origin IP and CNAME records are completely hidden behind Cloudflare&rsquo;s global edge network. Direct traffic to the Azure tenant is impossible.</li>
+</ol>
+<hr>
+<h2 id="threat-mitigation--waf-configuration">Threat Mitigation &amp; WAF Configuration<a hidden class="anchor" aria-hidden="true" href="#threat-mitigation--waf-configuration">#</a></h2>
+<p>A major vulnerability for any public-facing infrastructure is automated botnet reconnaissance. Attackers continuously scan domains for exposed <code>.env</code> files, <code>.git</code> repositories, or legacy login portals.</p>
+<p>Instead of relying solely on reactive threat scoring, I engineered a proactive WAF rule to immediately drop this traffic at the edge, preserving origin bandwidth and eliminating the attack vector.</p>
+<p><img alt="Cloudflare WAF Rule blocking malicious probing" loading="lazy" src="/images/waf-rule.png">
+<em>Figure 1: Custom Cloudflare WAF rule deployed to block automated URI probing.</em></p>
+<h3 id="security-controls-enforced">Security Controls Enforced:<a hidden class="anchor" aria-hidden="true" href="#security-controls-enforced">#</a></h3>
+<ul>
+<li><strong>Strict SSL/TLS:</strong> Enforced at the edge, rejecting any HTTP downgrade attempts.</li>
+<li><strong>Origin Obfuscation:</strong> The Azure tenant is shielded by Cloudflare&rsquo;s reverse proxy, preventing direct DDoS attacks against the compute layer.</li>
+<li><strong>Deterministic CI/CD:</strong> The deployment pipeline utilizes <code>skip_app_build: true</code> to prevent vendor auto-builders from introducing unauthorized configuration drift.</li>
+</ul>
+<hr>
+<h2 id="the-business-impact">The Business Impact<a hidden class="anchor" aria-hidden="true" href="#the-business-impact">#</a></h2>
+<p>This architecture demonstrates the ability to deploy enterprise-grade, highly secure infrastructure with near-zero overhead. By neutralizing threats at the DNS/Edge layer, the underlying Azure environment remains isolated, compliant and cost-efficient.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/azure/">Azure</a></li>
+      <li><a href="http://localhost:1313/tags/cloudflare/">Cloudflare</a></li>
+      <li><a href="http://localhost:1313/tags/waf/">WAF</a></li>
+      <li><a href="http://localhost:1313/tags/ci/cd/">CI/CD</a></li>
+      <li><a href="http://localhost:1313/tags/zero-trust/">Zero Trust</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Gilliano Agard | Cloud Security</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
