@@ -1,7 +1,36 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://gillianoagard.com/'
 languageCode = 'en-us'
-title = 'Gilliano Agard | Cloud Security Engineer'
+title = 'Gilliano Agard | Cloud Security'
 theme = 'PaperMod'
 
 [params]
-description = 'Securing Azure environments through Zero Trust architecture, identity governance and automated endpoint compliance.'
+  env = 'production'
+  description = 'Securing Azure environments through Zero Trust architecture, identity governance, and automated compliance.'
+  author = 'Gilliano Agard'
+  disableThemeToggle = false
+
+[params.profileMode]
+  enabled = true
+  title = "Gilliano Agard"
+  subtitle = "Cloud Security Engineer \n\nBridging technical lifecycle management with enterprise-scale cloud security. Specializing in Azure Zero Trust architecture, identity governance, and automated SOC 2 compliance."
+  
+  # professional headshot later
+  # imageUrl = "link-to-your-image.jpg" 
+  # imageWidth = 150
+  # imageHeight = 150
+
+  [[params.profileMode.buttons]]
+    name = "Security Case Studies"
+    url = "/posts/"
+
+  [[params.profileMode.buttons]]
+    name = "Career Architecture"
+    url = "/roadmap/"
+
+# Link your professional socials here
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/gilliano-agard/"
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/GillianoA"
