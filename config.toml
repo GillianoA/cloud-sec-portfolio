@@ -1,4 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Project'
-"theme= 'PaperMod'" 
+title = 'Gilliano Agard | Cloud Security Engineer'
+theme = 'PaperMod'
+
+[params]
+description = 'Securing Azure environments through Zero Trust architecture, identity governance and automated endpoint compliance.'
