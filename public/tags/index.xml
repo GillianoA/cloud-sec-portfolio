@@ -30,6 +30,41 @@
       <description></description>
     </item>
     <item>
+      <title>DevSecOps</title>
+      <link>http://localhost:1313/tags/devsecops/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/devsecops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>http://localhost:1313/tags/github-actions/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>React</title>
+      <link>http://localhost:1313/tags/react/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/react/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>http://localhost:1313/tags/terraform/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>WAF</title>
       <link>http://localhost:1313/tags/waf/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>

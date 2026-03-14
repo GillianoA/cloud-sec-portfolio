@@ -12,7 +12,7 @@ theme = 'PaperMod'
 [params.profileMode]
   enabled = true
   title = "Gilliano Agard"
-  subtitle = "Cloud Security Engineer \n\nBridging technical lifecycle management with enterprise-scale cloud security. Specializing in Azure Zero Trust architecture, identity governance, and automated SOC 2 compliance."
+  subtitle = "Cloud Security Engineer \n\nBridging technical lifecycle management with enterprise-scale cloud security. Specializing in Azure Zero Trust architecture, identity governance and automated SOC 2 compliance."
   imageUrl = "/headshot.jpg" 
   imageWidth = 150
   imageHeight = 150

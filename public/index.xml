@@ -16,6 +16,13 @@
       <description>Deploying a highly secure, automated portfolio infrastructure using Azure and Cloudflare WAF.</description>
     </item>
     <item>
+      <title>Case Study: Zero-Touch DevSecOps Pipeline</title>
+      <link>http://localhost:1313/posts/zero-touch-devsecops-pipeline/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/zero-touch-devsecops-pipeline/</guid>
+      <description>Automated deployment of a containerized React application to Azure using Terraform, Docker and GitHub Actions.</description>
+    </item>
+    <item>
       <title>Career Architecture</title>
       <link>http://localhost:1313/roadmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
