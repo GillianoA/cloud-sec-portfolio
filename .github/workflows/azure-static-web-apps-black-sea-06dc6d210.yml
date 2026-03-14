@@ -38,8 +38,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_SEA_06DC6D210 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"          # Root of the repo
-          output_location: "public"  # Where Hugo placed the compiled HTML
+          app_location: "public"          # Root of the repo
+          api_location: ""
+          output_location: ""  # Where Hugo placed the compiled HTML
           skip_app_build: true       # The killswitch for Oryx
           ###### End of Repository/Build Configurations ######
 
