@@ -15,6 +15,7 @@ Rather than relying on default vendor configurations, this deployment enforces a
 
 ## The Architecture
 **[View the deployment pipeline and configuration on GitHub ↗](https://github.com/GillianoA/cloud-sec-portfolio)**
+
 The infrastructure is decoupled into two distinct layers: **Compute/Hosting** and **Perimeter Security**.
 
 1. **The Origin (Azure Static Web Apps):** The application is compiled statically via a native GitHub Actions CI/CD pipeline. The pipeline bypasses Azure's default black-box builder (Oryx) in favor of a deterministic, runner-based execution. 

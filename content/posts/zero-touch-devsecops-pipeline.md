@@ -15,6 +15,7 @@ The goal was to build a completely "zero-touch" pipeline where a single code com
 
 ## The Architecture
 **[View the Infrastructure as Code (IaC) repository on GitHub ↗](https://github.com/GillianoA/zero-touch-portfolio)**
+
 This deployment utilizes a modern DevSecOps toolchain to ensure consistency, security and scalability.
 
 1. **Infrastructure as Code (IaC):** **Terraform** is utilized to programmatically define and deploy the Azure infrastructure, ensuring the environment is perfectly reproducible and version-controlled.

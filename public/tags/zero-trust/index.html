@@ -130,8 +130,8 @@
   <div class="entry-content">
     <p>The Objective To design and deploy a highly resilient, automated web infrastructure that completely obscures the origin compute layer and mitigates automated reconnaissance at the edge.
 Rather than relying on default vendor configurations, this deployment enforces a strict Zero Trust perimeter using a reverse proxy, strict SSL/TLS termination, and custom Web Application Firewall (WAF) rules.
-The Architecture The infrastructure is decoupled into two distinct layers: Compute/Hosting and Perimeter Security.
-The Origin (Azure Static Web Apps): The application is compiled statically via a native GitHub Actions CI/CD pipeline. The pipeline bypasses Azure’s default black-box builder (Oryx) in favor of a deterministic, runner-based execution. The Edge (Cloudflare): Azure’s origin IP and CNAME records are completely hidden behind Cloudflare’s global edge network. Direct traffic to the Azure tenant is impossible. Threat Mitigation &amp; WAF Configuration A major vulnerability for any public-facing infrastructure is automated botnet reconnaissance. Attackers continuously scan domains for exposed .env files, .git repositories, or legacy login portals.
+The Architecture View the deployment pipeline and configuration on GitHub ↗
+The infrastructure is decoupled into two distinct layers: Compute/Hosting and Perimeter Security.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2026-03-14 00:00:00 +0000 UTC'>March 14, 2026</span>&nbsp;·&nbsp;<span>Gilliano Agard</span></footer>
