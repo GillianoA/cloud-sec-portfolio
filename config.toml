@@ -9,12 +9,6 @@ theme = 'PaperMod'
   author = 'Gilliano Agard'
   disableThemeToggle = false
   images = ["/images/og-image.png"]
-  
-[params.assets]
-  favicon = "https://gillianoagard.com/favicon-32x32.png"
-  favicon16x16 = "https://gillianoagard.com/favicon-16x16.png"
-  favicon32x32 = "https://gillianoagard.com/favicon-32x32.png"
-  apple_touch_icon = "https://gillianoagard.com/apple-touch-icon.png"
 
 [params.profileMode]
   enabled = true
