@@ -85,8 +85,10 @@
     <meta property="article:tag" content="GitHub Actions">
     <meta property="article:tag" content="Azure">
     <meta property="article:tag" content="React">
+      <meta property="og:image" content="http://localhost:1313/images/og-image.png">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/og-image.png">
   <meta name="twitter:title" content="Case Study: Zero-Touch DevSecOps Pipeline">
   <meta name="twitter:description" content="Automated deployment of a containerized React application to Azure using Terraform, Docker and GitHub Actions.">
 
@@ -124,7 +126,7 @@
   "articleBody": "The Objective To eliminate manual infrastructure provisioning and enforce strict Infrastructure as Code (IaC) principles for application deployment.\nThe goal was to build a completely “zero-touch” pipeline where a single code commit automatically provisions the required cloud environment, builds a secure container and deploys the application without human intervention.\nThe Architecture View the Infrastructure as Code (IaC) repository on GitHub ↗\nThis deployment utilizes a modern DevSecOps toolchain to ensure consistency, security and scalability.\nInfrastructure as Code (IaC): Terraform is utilized to programmatically define and deploy the Azure infrastructure, ensuring the environment is perfectly reproducible and version-controlled. Containerization: The frontend application (built in React) is packaged into a Docker container, ensuring consistency across local development and cloud production environments. CI/CD Automation: GitHub Actions serves as the orchestration engine. It authenticates with Azure, executes the Terraform configuration, builds the Docker image and handles the final deployment. The Execution Flow The pipeline operates on a strict, automated sequence triggered by code integration:\nCommit \u0026 Trigger: Code is pushed to the main branch, triggering the GitHub Actions workflow. Provisioning (Terraform): The pipeline authenticates securely with Azure and runs terraform apply to provision or update the necessary hosting resources. Build \u0026 Push (Docker): The React application is built into a lightweight Docker image and pushed to a container registry. Deployment: The newly built container is deployed to the Azure environment, making the application live. The Business Impact This zero-touch architecture demonstrates a high level of DevSecOps maturity. By removing manual clicking in the Azure portal, the infrastructure becomes fully auditable, highly resilient to configuration drift and capable of rapid, secure scaling.\n",
   "wordCount" : "267",
   "inLanguage": "en",
-  "datePublished": "2026-03-14T00:00:00Z",
+  "image": "http://localhost:1313/images/og-image.png","datePublished": "2026-03-14T00:00:00Z",
   "dateModified": "2026-03-14T00:00:00Z",
   "author":{
     "@type": "Person",

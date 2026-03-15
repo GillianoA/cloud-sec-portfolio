@@ -8,7 +8,8 @@ theme = 'PaperMod'
   description = 'Securing Azure environments through Zero Trust architecture, identity governance and automated compliance.'
   author = 'Gilliano Agard'
   disableThemeToggle = false
-
+  images = ["/images/og-image.png"]
+  
 [params.profileMode]
   enabled = true
   title = "Gilliano Agard"
@@ -16,6 +17,10 @@ theme = 'PaperMod'
   imageUrl = "/headshot.jpg" 
   imageWidth = 150
   imageHeight = 150
+
+  [[params.profileMode.buttons]]
+    name = "Executive Summary"
+    url = "/about/"
 
   [[params.profileMode.buttons]]
     name = "Security Case Studies"
